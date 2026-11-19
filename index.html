@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laura Vidán Taboada — Portfolio de arquitectura</title>
+<meta name="description" content="Portfolio y CV de Laura Vidán Taboada, estudiante de 5º curso de arquitectura en la ETSAM.">
+<link rel="preload" as="image" href="img/w/portada.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,200;0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a; --paper:#ffffff; --grey:#8c8c8c; --soft:#bdbdbd;
+  --line-d:rgba(255,255,255,.28); --line-l:rgba(0,0,0,.16);
+  --serif:'Cardo','Times New Roman',Times,serif;
+  --sans:'Poppins',system-ui,sans-serif;
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.7;font-size:15px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* language */
+html[data-lang=es] .en, html[data-lang=en] .es{display:none!important}
+
+/* type */
+.spaced{font-family:var(--serif);font-weight:700;letter-spacing:.32em;text-transform:lowercase;line-height:1.05}
+.caps{font-family:var(--serif);letter-spacing:.38em;text-transform:uppercase;font-size:11px}
+.label{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:400;color:var(--grey)}
+.dark{background:var(--ink);color:#f2f2f2}
+.light{background:var(--paper);color:var(--ink)}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:22px var(--pad);mix-blend-mode:difference;color:#fff;pointer-events:none}
+nav *{pointer-events:auto}
+.brand{font-family:var(--serif);font-weight:700;letter-spacing:.34em;font-size:11px;text-transform:uppercase}
+.menu{display:flex;gap:clamp(14px,3vw,38px);align-items:center;font-size:11px;letter-spacing:.24em;text-transform:lowercase}
+.menu a{position:relative;padding:4px 0}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.menu a:hover::after,.menu a.on::after{transform:scaleX(1)}
+.lang{display:flex;gap:6px;border-left:1px solid rgba(255,255,255,.5);padding-left:clamp(14px,2vw,24px)}
+.lang button{font-size:11px;letter-spacing:.2em;opacity:.45;transition:opacity .3s}
+.lang button.on{opacity:1}
+.brand .bs{display:none}
+@media(max-width:640px){.menu .hide-s{display:none}.brand .bf{display:none}.brand .bs{display:inline}.hero .foot>span{max-width:55%}}
+
+/* hero */
+.hero{position:relative;height:100vh;min-height:560px;overflow:hidden;background:#000}
+.hero .bg{position:absolute;inset:0;background:url(img/w/portada.jpg) center/cover no-repeat;transform:scale(1.08);opacity:0;animation:heroIn 2.4s cubic-bezier(.2,.7,.2,1) .1s forwards}
+@keyframes heroIn{to{opacity:.9;transform:scale(1)}}
+.gl{position:absolute;background:var(--line-d)}
+.gl.h{height:1px;left:0;right:0;transform:scaleX(0);transform-origin:left;animation:draw 1.8s cubic-bezier(.6,0,.2,1) forwards}
+.gl.v{width:1px;top:0;bottom:0;transform:scaleY(0);transform-origin:top;animation:drawv 1.8s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{transform:scaleX(1)}} @keyframes drawv{to{transform:scaleY(1)}}
+.hero .title{position:absolute;left:calc(var(--pad) + 2vw);top:50%;transform:translateY(-50%);color:#fff}
+.hero h1{font-size:clamp(40px,8vw,118px);opacity:0;animation:up 1.4s cubic-bezier(.2,.7,.2,1) .9s forwards}
+.hero .who{margin-top:18px;opacity:0;animation:up 1.4s cubic-bezier(.2,.7,.2,1) 1.2s forwards;font-size:clamp(10px,1vw,12px)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero .foot{position:absolute;left:var(--pad);right:var(--pad);bottom:28px;display:flex;justify-content:space-between;align-items:flex-end;color:#ddd;font-size:11px;letter-spacing:.14em;opacity:0;animation:up 1.2s ease 1.6s forwards}
+.scroll{display:flex;align-items:center;gap:12px;text-transform:lowercase;letter-spacing:.24em}
+.scroll i{display:block;width:1px;height:42px;background:#fff;transform-origin:top;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* index */
+.index{position:relative;min-height:100vh;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);padding:calc(var(--pad) + 60px) var(--pad) var(--pad);gap:var(--pad)}
+.index::before{content:"";position:absolute;top:0;bottom:0;left:calc(var(--pad) + 74px);width:1px;background:var(--line-d)}
+.index ol{list-style:none;align-self:center;position:relative}
+.index li{border-bottom:1px solid rgba(255,255,255,.08)}
+.index a{display:grid;grid-template-columns:74px 1fr;align-items:baseline;padding:clamp(16px,3.2vh,30px) 0;transition:opacity .4s}
+.index ol:hover a{opacity:.32}
+.index ol a:hover,.index ol a:focus-visible{opacity:1}
+.index .n{font-family:var(--serif);font-size:clamp(28px,3.4vw,46px);font-weight:400}
+.index .t{padding-left:28px}
+.index .t b{display:block;font-family:var(--serif);font-weight:700;letter-spacing:.3em;font-size:clamp(14px,1.55vw,20px);text-transform:lowercase}
+.index .t>span{display:block;margin-top:6px;font-size:11px;letter-spacing:.12em;color:var(--grey)}
+.index .t em{font-style:normal;color:#fff;letter-spacing:.2em}
+.preview{position:relative;align-self:center;aspect-ratio:4/5;max-height:76vh;width:100%;border:1px solid var(--line-d);overflow:hidden}
+.preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .8s ease,transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.preview img.on{opacity:1;transform:none}
+.preview .cap{position:absolute;left:14px;bottom:12px;z-index:2;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#fff;mix-blend-mode:difference}
+.sec-label{position:absolute;top:calc(var(--pad) + 26px);left:var(--pad)}
+@media(max-width:860px){.index{grid-template-columns:1fr}.preview{display:none}.index::before{left:calc(var(--pad) + 52px)}.index a{grid-template-columns:52px 1fr}}
+
+/* project title sheet */
+.sheet{position:relative;min-height:100vh;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border-top:1px solid #1b1b1b}
+.sheet .left{position:relative;padding:calc(var(--pad) + 60px) var(--pad) var(--pad);display:flex;flex-direction:column;justify-content:space-between}
+.sheet .num{font-family:var(--serif);font-size:13px;letter-spacing:.3em;color:var(--grey)}
+.sheet h2{font-size:clamp(34px,5.2vw,76px)}
+.sheet .loc{margin-top:18px}
+.badge{display:inline-block;margin-top:22px;border:1px solid var(--line-d);padding:6px 14px;font-size:10px;letter-spacing:.24em;text-transform:uppercase}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:10px 34px;justify-content:start;border-top:1px solid var(--line-d);padding-top:20px;margin-top:40px}
+.facts dt{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--grey)}
+.facts dd{font-family:var(--serif);font-size:15px;letter-spacing:.06em;margin-top:2px}
+.sheet .map{position:relative;overflow:hidden;border-left:1px solid var(--line-d)}
+.sheet .map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
+.sheet:hover .map img{transform:scale(1.035)}
+.sheet .map::after{content:"";position:absolute;inset:var(--pad);border:1px solid rgba(255,255,255,.4);pointer-events:none}
+.sheet .map .gl.h{animation:none;transform:none}
+@media(max-width:860px){.sheet{grid-template-columns:1fr}.sheet .map{min-height:60vh;border-left:0;border-top:1px solid var(--line-d)}.facts{grid-template-columns:repeat(2,auto)}}
+
+/* project body */
+.body{padding:clamp(60px,10vw,140px) var(--pad)}
+.intro{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,96px);align-items:center}
+.intro.rev{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.intro.rev .txt{order:2}
+.txt p{font-size:14px;line-height:1.95;color:#2a2a2a;max-width:44ch;text-align:justify;hyphens:auto}
+.dark .txt p{color:#c9c9c9}
+.dark .light .txt p,.light .txt p{color:#2a2a2a}
+.dark .light figcaption b{color:#222}
+.txt p+p{margin-top:1.1em}
+.txt .lead{font-family:var(--serif);font-size:clamp(19px,1.9vw,26px);line-height:1.45;letter-spacing:.01em;color:inherit;text-align:left;margin-bottom:1.4em;max-width:30ch}
+@media(max-width:860px){.intro,.intro.rev{grid-template-columns:1fr}.intro.rev .txt{order:0}}
+
+figure{position:relative;cursor:zoom-in}
+figure img{width:100%;height:auto;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+figure .frame{overflow:hidden;background:#f6f6f6}
+.dark figure .frame{background:#111}
+figure:hover img{transform:scale(1.015)}
+figcaption{display:flex;justify-content:space-between;gap:16px;margin-top:10px;font-size:10.5px;letter-spacing:.14em;color:var(--grey)}
+figcaption b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:13px;letter-spacing:.08em;color:inherit}
+.light figcaption b{color:#222}
+.dark figcaption b{color:#ddd}
+
+.grid{display:grid;gap:clamp(28px,4vw,56px) clamp(20px,3vw,40px);margin-top:clamp(60px,9vw,120px)}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.span2{grid-column:span 2}
+.full{grid-column:1/-1}
+@media(max-width:760px){.g2,.g3{grid-template-columns:1fr}.span2{grid-column:auto}}
+.subhead{display:flex;align-items:center;gap:18px;margin-top:clamp(70px,10vw,130px)}
+.subhead::after{content:"";flex:1;height:1px;background:var(--line-l)}
+.dark .subhead::after{background:var(--line-d)}
+.credit{margin-top:10px;font-size:11px;color:var(--grey);letter-spacing:.06em}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease-out,transform .55s ease-out}
+.rv.in{opacity:1;transform:none}
+
+/* menciones */
+.mentions-head{min-height:62vh;display:flex;align-items:flex-end;padding:calc(var(--pad) + 60px) var(--pad) var(--pad);position:relative;border-top:1px solid #1b1b1b}
+.mentions-head .box{position:absolute;inset:calc(var(--pad) + 40px) var(--pad) var(--pad);border:1px solid var(--line-d);pointer-events:none}
+.mentions-head h2{font-size:clamp(30px,5vw,70px);padding:0 0 28px 28px}
+.mention{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);padding:clamp(60px,9vw,120px) var(--pad);border-top:1px solid #1b1b1b}
+.mention h3{font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(28px,3.4vw,46px);letter-spacing:.12em}
+.mention .meta{margin:12px 0 30px;display:flex;flex-direction:column;gap:4px}
+.mention ul{list-style:none;margin-top:1.4em;border-top:1px solid var(--line-l)}
+.mention ul li{padding:10px 0 10px 28px;border-bottom:1px solid var(--line-l);font-size:13px;position:relative}
+.mention ul li::before{content:attr(data-i);position:absolute;left:0;font-family:var(--serif);color:var(--grey)}
+.mention .pics{display:grid;gap:22px}
+.mention .pics.two{grid-template-columns:1fr 1fr;align-items:end}
+@media(max-width:860px){.mention{grid-template-columns:1fr}}
+
+/* perfil */
+.perfil{display:grid;grid-template-columns:minmax(0,.85fr) 1px minmax(0,1.15fr);gap:clamp(30px,5vw,80px);padding:calc(var(--pad) + 80px) var(--pad) clamp(70px,9vw,130px)}
+.perfil .rule{background:var(--line-l)}
+.portrait{border:1px solid var(--line-l);padding:12px;max-width:270px;background:#fff}
+.portrait .ph{aspect-ratio:3/4;overflow:hidden;background:#fff}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:grayscale(.15)}
+.perfil .name{font-family:var(--serif);font-weight:700;letter-spacing:.24em;font-size:15px;margin:26px 0 4px}
+.perfil .bio{margin-top:26px;font-size:14px;line-height:1.95;color:#333;max-width:46ch;text-align:justify;hyphens:auto}
+.traits{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.traits span{border:1px solid var(--line-l);padding:5px 12px;font-size:11px;letter-spacing:.1em}
+.contact-mini{margin-top:30px;display:grid;gap:9px;font-size:13px}
+.contact-mini a,.contact-mini span{display:flex;align-items:center;gap:12px}
+.contact-mini svg{width:15px;height:15px;flex:none}
+.contact-mini a:hover{text-decoration:underline;text-underline-offset:4px}
+.cv h2{font-size:clamp(34px,4.6vw,64px);margin-bottom:34px}
+.block{margin-bottom:42px}
+.block h4{font-family:var(--serif);font-weight:700;letter-spacing:.32em;text-transform:uppercase;font-size:12.5px;padding-bottom:10px;border-bottom:1.5px solid var(--ink);margin-bottom:16px}
+.row{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:9px 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:13.5px}
+.row .y{font-size:12px;color:var(--grey);letter-spacing:.06em}
+.row strong{font-weight:400}
+.row small{display:block;color:#666;font-size:12px;margin-top:2px}
+.sw{display:grid;grid-template-columns:1fr 1fr;gap:4px 40px}
+.sw div{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:13px;letter-spacing:.04em}
+.dots{display:flex;gap:5px}
+.dots i{width:7px;height:7px;border-radius:50%;background:#e2e2e2;transition:background .4s}
+.dots i.f{background:var(--ink)}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:960px){.perfil{grid-template-columns:1fr}.perfil .rule{display:none}.sw,.cols2{grid-template-columns:1fr}}
+
+/* contacto */
+.contacto{position:relative;min-height:80vh;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--pad) + 60px) var(--pad) 28px}
+.contacto .box{position:absolute;inset:calc(var(--pad) + 40px) var(--pad) 80px;border:1px solid var(--line-d);pointer-events:none}
+.contacto .inner{position:relative;padding:28px 28px 56px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end;flex:1}
+.contacto h2{font-size:clamp(38px,7vw,104px)}
+.contacto .ways{display:grid;gap:14px;font-size:14px;letter-spacing:.06em}
+.contacto .ways>a,.contacto .ways>span{display:flex;gap:14px;align-items:center;border-bottom:1px solid var(--line-d);padding-bottom:12px}
+.contacto .ways a:hover{color:#fff}
+.contacto .ways svg{width:16px;height:16px}
+.contacto .ways .arrow{margin-left:auto;transition:transform .4s}
+.contacto .ways a:hover .arrow{transform:translateX(6px)}
+.copy{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.2em;color:#666;text-transform:uppercase;position:relative}
+@media(max-width:860px){.contacto .inner{grid-template-columns:1fr}}
+
+
+/* annotations on drawings */
+.frame{position:relative;container-type:inline-size}
+.ann{position:absolute;inset:0;pointer-events:none;font-size:clamp(6px,.76cqw,11.5px)}
+.ann .a{position:absolute;font-family:var(--serif);font-style:italic;letter-spacing:.14em;color:#3a3a3a;line-height:1.45;white-space:nowrap;padding-bottom:.35em}
+.ann .a.sm{font-size:.8em;color:#777;font-style:normal;letter-spacing:.1em}
+.ann .a.blk{white-space:normal;font-size:.92em}
+.ann .ldr{position:absolute;width:1px;background:#9a9a9a}
+.annl{display:none;list-style:none;margin-top:12px;border-top:1px solid var(--line-l)}
+.annl li{font-size:12px;padding:7px 0;border-bottom:1px solid var(--line-l);color:#888}
+.dark .annl{border-color:var(--line-d)}.dark .annl li{border-color:rgba(255,255,255,.12);color:#aaa}
+@media(max-width:700px){figure .ann{display:none}.annl{display:block}}
+.lbw{position:relative;display:inline-block;line-height:0;cursor:zoom-in;transition:transform .35s cubic-bezier(.2,.7,.2,1);touch-action:none;user-select:none;-webkit-user-select:none}
+.lbw.z{cursor:zoom-out}
+.lbw img{-webkit-user-drag:none}
+.lb .nav{z-index:3}
+.lb .hint{font-size:10px;letter-spacing:.2em;color:#8a8a8a;text-transform:lowercase}
+.lb .ht{display:none}
+@media(hover:none) and (pointer:coarse){.lb .hm{display:none}.lb .ht{display:inline}}
+@media(max-width:640px){.lb header{gap:10px}.lb .hint{font-size:9px;letter-spacing:.12em}}
+.lbw img{max-width:calc(100vw - 2*clamp(50px,7vw,110px));max-height:calc(100vh - 130px)}
+.lbw .ann{font-size:clamp(7px,.68vw,12px);line-height:normal}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(6,6,6,.97);display:grid;grid-template-rows:auto 1fr auto;opacity:0;pointer-events:none;transition:opacity .45s}
+.lb.open{opacity:1;pointer-events:auto}
+.lb header,.lb footer{display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);color:#cfcfcf;font-size:11px;letter-spacing:.22em}
+.lb .stage{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:0 clamp(50px,7vw,110px);min-height:0}
+.lb img{object-fit:contain;background:#fff;transition:opacity .35s}
+.lb img.dk{background:transparent}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border:1px solid var(--line-d);border-radius:50%;color:#fff;display:grid;place-items:center;transition:background .3s}
+.lb .nav:hover{background:rgba(255,255,255,.1)}
+.lb .prev{left:clamp(8px,2vw,30px)}.lb .next{right:clamp(8px,2vw,30px)}
+.lb footer b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:15px;letter-spacing:.06em;color:#fff;text-transform:none}
+.lb .x{font-size:11px;letter-spacing:.24em;text-transform:lowercase;display:flex;gap:10px;align-items:center}
+.lb .x i{display:block;width:22px;height:1px;background:#fff;position:relative}
+.lb .x i::after{content:"";position:absolute;inset:0;background:#fff;transform:rotate(90deg)}
+.lb .x i{transform:rotate(45deg)}
+
+/* progress */
+.prog{position:fixed;left:0;top:0;height:1px;background:#fff;mix-blend-mode:difference;z-index:60;width:0}
+</style>
+</head>
+<body>
+<div class="prog" id="prog"></div>
+
+<nav>
+  <a href="#inicio" class="brand" data-go><span class="bf">Laura Vidán Taboada</span><span class="bs">L·V·T</span></a>
+  <div class="menu">
+    <a href="#proyectos" data-go><span class="es">proyectos</span><span class="en">projects</span></a>
+    <a href="#perfil" data-go><span class="es">perfil</span><span class="en">profile</span></a>
+    <a href="#contacto" data-go class="hide-s"><span class="es">contacto</span><span class="en">contact</span></a>
+    <div class="lang"><button data-l="es" class="on">ES</button><button data-l="en">EN</button></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="inicio">
+  <div class="bg"></div>
+  <div class="gl v" style="left:9%;animation-delay:.3s"></div>
+  <div class="gl h" style="top:27%;animation-delay:.5s"></div>
+  <div class="gl h" style="top:73%;animation-delay:.7s"></div>
+  <div class="title">
+    <h1 class="spaced">portfolio</h1>
+    <p class="caps who">Laura Vidán Taboada</p>
+  </div>
+  <div class="foot">
+    <span><span class="es">Arquitectura · ETSAM · 2021 — 2026</span><span class="en">Architecture · ETSAM · 2021 — 2026</span></span>
+    <a href="#proyectos" class="scroll" data-go><i></i><span class="es">ver proyectos</span><span class="en">view projects</span></a>
+  </div>
+</header>
+
+<!-- INDEX -->
+<section class="index dark" id="proyectos">
+  <p class="label sec-label"><span class="es">Índice</span><span class="en">Index</span></p>
+  <ol>
+    <li><a href="#arched-habitat" data-go data-pv="0"><span class="n">1</span><span class="t"><b>arched habitat — S</b><span>Berlín · <span class="es">Villa de kayak para ocho personas</span><span class="en">Kayak villa for eight people</span></span></span></a></li>
+    <li><a href="#fragmentos-portantes" data-go data-pv="1"><span class="n">2</span><span class="t"><b>fragmentos portantes — M</b><span>Elche · <span class="es">Palacio de Congresos</span><span class="en">Convention Centre</span> · <em class="es">Sobresaliente</em><em class="en">Outstanding</em></span></span></a></li>
+    <li><a href="#villa-olimpica" data-go data-pv="2"><span class="n">3</span><span class="t"><b>villa olímpica del pardo — L</b><span>Madrid · <span class="es">Complejo olímpico</span><span class="en">Olympic complex</span> · <em class="es">Sobresaliente</em><em class="en">Outstanding</em></span></span></a></li>
+    <li><a href="#menciones" data-go data-pv="3"><span class="n">4</span><span class="t"><b>menciones honoríficas</b><span><span class="es">Entre Ríos · Escenografía — Matrícula de Honor</span><span class="en">Entre Ríos · Scenography — Highest Honours</span></span></span></a></li>
+  </ol>
+  <div class="preview" aria-hidden="true">
+    <img src="img/w/ah-render.jpg" data-full="img/ah-render.jpg" width="627" height="996" decoding="async" alt="" class="on" style="object-position:50% 72%">
+    <img src="img/w/fp-render.jpg" data-full="img/fp-render.jpg" width="1800" height="941" decoding="async" alt="" style="object-position:40% 50%">
+    <img src="img/w/vo-atardecer.jpg" data-full="img/vo-atardecer.jpg" width="1800" height="1271" decoding="async" alt="">
+    <img src="img/w/esc-luna.jpg" data-full="img/esc-luna.jpg" width="1400" height="990" decoding="async" alt="">
+    <span class="cap" id="pvcap">arched habitat</span>
+  </div>
+</section>
+
+<!-- 1 ARCHED HABITAT -->
+<section id="arched-habitat">
+  <div class="sheet dark">
+    <div class="left">
+      <p class="num">01 / 04</p>
+      <div>
+        <p class="caps loc">Berlín</p>
+        <h2 class="spaced" style="margin-top:14px">arched<br>habitat</h2>
+        <dl class="facts">
+          <div><dt><span class="es">Escala</span><span class="en">Scale</span></dt><dd>S</dd></div>
+          <div><dt><span class="es">Programa</span><span class="en">Program</span></dt><dd><span class="es">Villa · 8 personas</span><span class="en">Villa · 8 people</span></dd></div>
+          <div><dt><span class="es">Sistema</span><span class="en">System</span></dt><dd><span class="es">Bóvedas de fábrica</span><span class="en">Masonry vaults</span></dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="map"><img src="img/w/ah-mapa.jpg" data-full="img/ah-mapa.jpg" width="1400" height="1909" decoding="async" alt="Plano de situación, Berlín" loading="lazy"></div>
+  </div>
+  <div class="body light" data-gal="ah">
+    <div class="intro">
+      <div class="txt rv">
+        <p class="lead es">Una secuencia de bóvedas de cañón que ordenan el espacio y establecen un ritmo habitable.</p>
+        <p class="lead en">A sequence of barrel vaults that organise space and set a domestic rhythm.</p>
+        <p class="es">Se propone una villa de kayak para ocho personas. La arquitectura se construye a partir de una secuencia de bóvedas de cañón de fábrica. Dos bóvedas más contenidas recogen los ámbitos privados, mientras que una tercera, de mayor escala, configura un vacío generoso para el trabajo común y la vida colectiva.</p>
+        <p class="es">Las cargas se canalizan a través de las bóvedas hacia vigas de hormigón y una trama de pilares, liberando el espacio entre muros de toda función estructural. Esta liberación permite que el interior se adapte, se divida y se ocupe con libertad. El resultado es una arquitectura sólida y flexible, donde lo individual y lo colectivo conviven dentro de un mismo sistema espacial continuo.</p>
+        <p class="en">The project proposes a villa for eight people centred on the shared experience of kayaking. The architecture is built from a sequence of masonry barrel vaults. Two smaller vaults house the private quarters, while a third, larger vault creates a generous void for communal work and collective life.</p>
+        <p class="en">Loads are channelled through the vaults into concrete beams and a grid of pillars, freeing the space between the walls from any structural function. The interior can thus be adapted, partitioned and occupied with total freedom — an architecture both solid and flexible, where individual and collective spheres coexist within a single, continuous spatial system.</p>
+      </div>
+      <figure class="rv" style="max-width:520px;justify-self:end;width:100%" data-cap-es="Interior bajo la bóveda principal" data-cap-en="Interior beneath the main vault"><div class="frame"><img src="img/w/ah-render.jpg" data-full="img/ah-render.jpg" width="627" height="996" decoding="async" alt="Render interior bajo bóveda de ladrillo" loading="lazy"></div><figcaption><b class="es">Espacio común</b><b class="en">Communal space</b><span>render</span></figcaption></figure>
+    </div>
+    <div class="grid g2">
+      <figure class="rv" data-cap-es="Axonometría" data-cap-en="Axonometric"><div class="frame"><img src="img/w/ah-axo.jpg" data-full="img/ah-axo.jpg" width="2000" height="2370" decoding="async" alt="Axonometría explotada" loading="lazy"></div><figcaption><b class="es">Axonométrica</b><b class="en">Axonometric</b><span></span></figcaption></figure>
+      <figure class="rv" data-cap-es="Planta · E 1:100" data-cap-en="Floor plan · 1:100"><div class="frame"><img src="img/w/ah-planta.jpg" data-full="img/ah-planta.jpg" width="2000" height="1612" decoding="async" alt="Planta" loading="lazy"></div><figcaption><b class="es">Planta</b><b class="en">Floor plan</b><span>E 1:100</span></figcaption></figure>
+      <figure class="rv full" data-cap-es="Secciones transversal y longitudinal · E 1:100" data-cap-en="Transverse and longitudinal sections · 1:100"><div class="frame"><img src="img/w/ah-secciones.jpg" data-full="img/ah-secciones.jpg" width="2000" height="1185" decoding="async" alt="Secciones" loading="lazy"></div><figcaption><b class="es">Sección transversal · Sección longitudinal</b><b class="en">Transverse · Longitudinal section</b><span>E 1:100</span></figcaption></figure>
+      <figure class="rv full" data-cap-es="Alzados oeste y sur · E 1:100" data-cap-en="West and south elevations · 1:100"><div class="frame"><img src="img/w/ah-alzados.jpg" data-full="img/ah-alzados.jpg" width="2000" height="1185" decoding="async" alt="Alzados" loading="lazy"></div><figcaption><b class="es">Alzado oeste · Alzado sur</b><b class="en">West · South elevation</b><span>E 1:100</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 2 FRAGMENTOS PORTANTES -->
+<section id="fragmentos-portantes">
+  <div class="sheet dark">
+    <div class="left">
+      <p class="num">02 / 04</p>
+      <div>
+        <p class="caps loc">Elche</p>
+        <h2 class="spaced" style="margin-top:14px">fragmentos<br>portantes</h2>
+        <span class="badge"><span class="es">Proyecto sobresaliente</span><span class="en">Outstanding project</span></span>
+        <dl class="facts">
+          <div><dt><span class="es">Escala</span><span class="en">Scale</span></dt><dd>M</dd></div>
+          <div><dt><span class="es">Programa</span><span class="en">Program</span></dt><dd><span class="es">Palacio de Congresos</span><span class="en">Convention Centre</span></dd></div>
+          <div><dt><span class="es">Hito</span><span class="en">Landmark</span></dt><dd><span class="es">Núcleo de 30 m</span><span class="en">30 m core</span></dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="map"><img src="img/w/fp-mapa.jpg" data-full="img/fp-mapa.jpg" width="1600" height="1131" decoding="async" alt="Plano de situación, Elche" loading="lazy"></div>
+  </div>
+  <div class="body light" data-gal="fp">
+    <figure class="rv" data-cap-es="Vista exterior entre palmeras" data-cap-en="Exterior view among the palm trees"><div class="frame"><img src="img/w/fp-render.jpg" data-full="img/fp-render.jpg" width="1800" height="941" decoding="async" alt="Render exterior del Palacio de Congresos" loading="lazy"></div><figcaption><b class="es">Vista exterior</b><b class="en">Exterior view</b><span>render</span></figcaption></figure>
+    <div class="intro rev" style="margin-top:clamp(60px,9vw,120px)">
+      <div class="txt rv">
+        <p class="lead es">Un programa complejo traducido en un juego de tensiones volumétricas.</p>
+        <p class="lead en">A complex program translated into a play of volumetric tensions.</p>
+        <p class="es">Esta propuesta para el Palacio de Congresos de Elche nace de la voluntad de traducir un programa complejo —tres auditorios, salas de conferencias y oficinas— en un juego de tensiones volumétricas. En el auditorio principal la arquitectura busca el suelo: el graderío desciende hacia la penumbra del escenario, mientras que en las cotas altas la estructura se abre para dejar entrar la claridad y la visión del entorno.</p>
+        <p class="es">El edificio se organiza como un conjunto de piezas ensambladas donde la horizontalidad de los accesos se encuentra con la verticalidad de un núcleo de 30 metros, creando un hito visual que organiza el vacío. Su piel rítmica no solo sostiene el edificio liberando el interior, sino que actúa como un filtro que tamiza la luz y enmarca el paisaje de palmeras.</p>
+        <p class="en">This proposal for the Elche Convention Centre arises from the desire to translate a complex program —three auditoriums, conference rooms and offices— into a play of volumetric tensions. In the main auditorium the architecture seeks the ground: seating descends towards the twilight of the stage, while at the upper levels the structure opens to let in clarity and views of the surroundings.</p>
+        <p class="en">The building is organised as a set of assembled pieces where the horizontality of the entrances meets the verticality of a 30-metre core, creating a landmark that organises the surrounding void. Its rhythmic skin not only supports the building, freeing the interior, but also filters the light and frames the landscape of palm trees.</p>
+      </div>
+      <div class="grid g2 rv" style="margin-top:0;gap:14px;background:#0a0a0a;padding:14px">
+        <figure data-dark data-cap-es="Maqueta" data-cap-en="Physical model"><div class="frame"><img src="img/w/fp-maqueta1.jpg" data-full="img/fp-maqueta1.jpg" width="1184" height="864" decoding="async" alt="Maqueta" loading="lazy"></div></figure>
+        <figure data-dark data-cap-es="Maqueta" data-cap-en="Physical model"><div class="frame"><img src="img/w/fp-maqueta2.jpg" data-full="img/fp-maqueta2.jpg" width="1184" height="864" decoding="async" alt="Maqueta" loading="lazy"></div></figure>
+      </div>
+    </div>
+    <p class="label subhead"><span class="es">Documentación gráfica</span><span class="en">Drawings</span></p>
+    <div class="grid g2" style="margin-top:40px">
+      <figure class="rv" data-cap-es="Sección entrada principal · E 1:300" data-cap-en="Main entrance section · 1:300"><div class="frame"><img src="img/w/fp-seccion1.jpg" data-full="img/fp-seccion1.jpg" width="2000" height="1000" decoding="async" alt="Sección entrada principal" loading="lazy"></div><figcaption><b class="es">Sección entrada principal</b><b class="en">Main entrance section</b><span>E 1:300</span></figcaption></figure>
+      <figure class="rv" data-cap-es="Sección auditorios · E 1:300" data-cap-en="Auditorium section · 1:300"><div class="frame"><img src="img/w/fp-seccion2.jpg" data-full="img/fp-seccion2.jpg" width="2000" height="1000" decoding="async" alt="Sección auditorios" loading="lazy"></div><figcaption><b class="es">Sección auditorios</b><b class="en">Auditorium section</b><span>E 1:300</span></figcaption></figure>
+      <figure class="rv" data-cap-es="Alzado norte · E 1:300" data-cap-en="North elevation · 1:300"><div class="frame"><img src="img/w/fp-alzado1.jpg" data-full="img/fp-alzado1.jpg" width="2000" height="1000" decoding="async" alt="Alzado norte" loading="lazy"></div><figcaption><b class="es">Alzado norte</b><b class="en">North elevation</b><span>E 1:300</span></figcaption></figure>
+      <figure class="rv" data-cap-es="Alzado entrada principal · E 1:300" data-cap-en="Main entrance elevation · 1:300"><div class="frame"><img src="img/w/fp-alzado2.jpg" data-full="img/fp-alzado2.jpg" width="2000" height="1000" decoding="async" alt="Alzado entrada principal" loading="lazy"></div><figcaption><b class="es">Alzado entrada principal</b><b class="en">Main entrance elevation</b><span>E 1:300</span></figcaption></figure>
+      <figure class="rv" data-cap-es="Planta baja · E 1:300" data-cap-en="Ground floor plan · 1:300"><div class="frame"><img src="img/w/fp-planta-baja.jpg" data-full="img/fp-planta-baja.jpg" width="2000" height="1414" decoding="async" alt="Planta baja" loading="lazy"></div><figcaption><b class="es">Planta baja</b><b class="en">Ground floor plan</b><span>E 1:300</span></figcaption></figure>
+      <figure class="rv" data-cap-es="Planta alta · E 1:300" data-cap-en="First floor plan · 1:300"><div class="frame"><img src="img/w/fp-planta-alta.jpg" data-full="img/fp-planta-alta.jpg" width="2000" height="1414" decoding="async" alt="Planta alta" loading="lazy"></div><figcaption><b class="es">Planta alta</b><b class="en">First floor plan</b><span>E 1:300</span></figcaption></figure>
+    </div>
+    <p class="label subhead"><span class="es">Proyecto de estructuras</span><span class="en">Structural design</span></p>
+    <div class="grid g2" style="margin-top:40px">
+      <figure class="rv" data-cap-es="Sección DD' · cercha L = 7,5 m, IPE 500 · E 1:100" data-cap-en="Section DD' · 7.5 m truss, IPE 500 · 1:100"><div class="frame"><img src="img/w/fp-estructura.jpg" data-full="img/fp-estructura.jpg" width="1400" height="990" decoding="async" alt="Lámina de estructuras, sección" loading="lazy"></div><figcaption><b class="es">Sección DD'</b><b class="en">Section DD'</b><span>E 1:100</span></figcaption></figure>
+      <figure class="rv" data-cap-es="Detalles constructivos · E 1:100" data-cap-en="Construction details · 1:100"><div class="frame"><img src="img/w/fp-detalles.jpg" data-full="img/fp-detalles.jpg" width="1400" height="990" decoding="async" alt="Lámina de detalles constructivos" loading="lazy"></div><figcaption><b class="es">Detalles constructivos</b><b class="en">Construction details</b><span>E 1:100</span></figcaption></figure>
+    </div>
+    <p class="credit"><span class="es">Láminas de la asignatura Proyecto de Estructuras (2025/2026), realizadas con Esther Ampudia Baz y Miguel Aragoneses Sánchez-Mora.</span><span class="en">Sheets for the Structural Design course (2025/2026), produced with Esther Ampudia Baz and Miguel Aragoneses Sánchez-Mora.</span></p>
+  </div>
+</section>
+
+<!-- 3 VILLA OLIMPICA -->
+<section id="villa-olimpica">
+  <div class="sheet dark">
+    <div class="left">
+      <p class="num">03 / 04</p>
+      <div>
+        <p class="caps loc">Madrid · Monte de El Pardo</p>
+        <h2 class="spaced" style="margin-top:14px">villa<br>olímpica<br>del pardo</h2>
+        <span class="badge"><span class="es">Proyecto sobresaliente</span><span class="en">Outstanding project</span></span>
+        <dl class="facts">
+          <div><dt><span class="es">Escala</span><span class="en">Scale</span></dt><dd>L</dd></div>
+          <div><dt><span class="es">Deportistas</span><span class="en">Athletes</span></dt><dd>10.000</dd></div>
+          <div><dt><span class="es">Estadio</span><span class="en">Stadium</span></dt><dd><span class="es">60.000 espect.</span><span class="en">60,000 seats</span></dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="map"><img src="img/w/vo-mapa.jpg" data-full="img/vo-mapa.jpg" width="1600" height="1131" decoding="async" alt="Cuenca alta del Manzanares" loading="lazy"></div>
+  </div>
+  <div class="body dark" data-gal="vo">
+    <div class="intro">
+      <div class="txt rv">
+        <p class="lead es">Las circulaciones como elemento estructurador del paisaje.</p>
+        <p class="lead en">Circulation as the element that shapes the landscape.</p>
+        <p class="es">Se proyecta un complejo olímpico en la cuenca alta del Manzanares, próximo al Monte de El Pardo, diseñado para albergar a 10.000 deportistas y un estadio de atletismo con capacidad para 60.000 espectadores. El concepto se vertebra en torno a un sistema de cintas fluidas que recorren la topografía, organizando los flujos, el programa y la conectividad de todo el recinto.</p>
+        <p class="es">Se plantea una dualidad en las circulaciones: el plano inferior, concebido como una extensión pública del paisaje, acoge a visitantes y aficionados; sobre él emerge un segundo estrato de cintas deportivas que estructuran el recorrido y la actividad de los deportistas de la villa.</p>
+        <p class="en">An Olympic complex is projected in the upper Manzanares basin, next to the Monte de El Pardo, designed to house 10,000 athletes and an athletics stadium for 60,000 spectators. The concept is structured around a system of fluid bands that weave through the topography, organising flows, program and connectivity across the entire site.</p>
+        <p class="en">A duality in circulation is proposed: the lower level, conceived as a public extension of the landscape, accommodates visitors and spectators; above it emerges a second stratum of athletic ribbons that structure the routes and activities of the village's athletes.</p>
+      </div>
+      <figure class="rv" data-dark data-cap-es="Vista aérea del estadio y las cintas al atardecer" data-cap-en="Aerial view of the stadium and ribbons at dusk"><div class="frame"><img src="img/w/vo-aerea.jpg" data-full="img/vo-aerea.jpg" width="1800" height="1199" decoding="async" alt="Vista aérea" loading="lazy"></div><figcaption><b class="es">Vista aérea</b><b class="en">Aerial view</b><span>render</span></figcaption></figure>
+    </div>
+    <div class="grid g2">
+      <figure class="rv full" data-dark data-cap-es="Las cintas deportivas con el skyline de Cuatro Torres" data-cap-en="The athletic ribbons with the Cuatro Torres skyline"><div class="frame"><img src="img/w/vo-atardecer.jpg" data-full="img/vo-atardecer.jpg" width="1800" height="1271" decoding="async" alt="Cintas deportivas al atardecer" loading="lazy"></div><figcaption><b class="es">Cintas deportivas</b><b class="en">Athletic ribbons</b><span>render</span></figcaption></figure>
+      <figure class="rv" data-dark data-cap-es="Anillo Verde de Madrid · E 1:50.000" data-cap-en="Madrid's Green Ring · 1:50,000"><div class="frame"><img src="img/w/vo-anillo.jpg" data-full="img/vo-anillo.jpg" width="1600" height="1131" decoding="async" alt="Anillo Verde de Madrid" loading="lazy"></div><figcaption><b class="es">Anillo Verde de Madrid</b><b class="en">Madrid's Green Ring</b><span>E 1:50.000</span></figcaption></figure>
+      <div class="txt rv" style="align-self:center">
+        <p class="es">Se propone un plan de integración entre la Villa Olímpica y el tejido financiero de Madrid a través del Cercanías y la Estación de Chamartín, en continuidad con el Paseo de la Castellana.</p>
+        <p class="es">En los conjuntos residenciales, un gradiente de privacidad lleva de las áreas de entrenamiento públicas —compartidas por varios conjuntos— a espacios comunes privados a doble altura, conectados por galerías de paso abiertas.</p>
+        <p class="en">An integration plan links the Olympic Village to Madrid's financial district through the commuter rail and Chamartín Station, continuing the Paseo de la Castellana axis.</p>
+        <p class="en">In the residential clusters, a privacy gradient leads from public training areas —shared by several clusters— to private double-height common spaces, connected by open walkway galleries.</p>
+      </div>
+      <figure class="rv full" data-cap-es="Sección territorial · del Monte de El Pardo a Cuatro Torres" data-cap-en="Territorial section · from Monte de El Pardo to Cuatro Torres"><div class="frame" style="background:#fff"><img src="img/w/vo-ciudad.jpg" data-full="img/vo-ciudad.jpg" width="2000" height="849" decoding="async" alt="Sección territorial" loading="lazy"><div class="ann"><span class="a " style="left:5.2%;bottom:90%"><span class="es">Monte de El Pardo</span><span class="en">Monte de El Pardo</span></span><i class="ldr" style="left:7%;top:11%;height:46%"></i><span class="a " style="left:39%;bottom:90%"><span class="es">Villa olímpica de la Cuenca del Manzanares</span><span class="en">Olympic Village, Manzanares basin</span></span><i class="ldr" style="left:44.5%;top:11%;height:55%"></i><span class="a r" style="right:2.6%;bottom:90%"><span class="es">Cuatro Torres Business Area</span><span class="en">Cuatro Torres Business Area</span></span><i class="ldr" style="left:96.6%;top:11%;height:51%"></i><span class="a sm" style="left:19%;bottom:47%"><span class="es">6 km/h</span><span class="en">6 km/h</span></span><span class="a blk" style="left:2.5%;bottom:3%;width:27%"><span class="es">Se propone un plan de integración entre la Villa Olímpica y el tejido financiero de Madrid a través del Cercanías con la Estación de Chamartín.</span><span class="en">An integration plan links the Olympic Village to Madrid’s financial district via the commuter rail and Chamartín Station.</span></span></div></div><figcaption><b class="es">Sección territorial</b><b class="en">Territorial section</b><span></span></figcaption><ul class="annl"><li><span class="es">Monte de El Pardo</span><span class="en">Monte de El Pardo</span></li><li><span class="es">Villa olímpica de la Cuenca del Manzanares</span><span class="en">Olympic Village, Manzanares basin</span></li><li><span class="es">Cuatro Torres Business Area</span><span class="en">Cuatro Torres Business Area</span></li><li><span class="es">Integración con el tejido financiero de Madrid a través del Cercanías y la Estación de Chamartín</span><span class="en">Integration with Madrid’s financial district via commuter rail and Chamartín Station</span></li></ul></figure>
+      <figure class="rv full" data-cap-es="Sección longitudinal de la Villa Olímpica · E 1:300" data-cap-en="Longitudinal section of the Olympic Village · 1:300"><div class="frame" style="background:#fff"><img src="img/w/vo-seccion.jpg" data-full="img/vo-seccion.jpg" width="2000" height="526" decoding="async" alt="Sección longitudinal del estadio" loading="lazy"></div><figcaption><b class="es">Sección longitudinal de la Villa Olímpica</b><b class="en">Longitudinal section of the Olympic Village</b><span>E 1:300</span></figcaption></figure>
+      <figure class="rv full" data-cap-es="Residencia olímpica · alzado y sección longitudinal · E 1:300" data-cap-en="Olympic residence · elevation and longitudinal section · 1:300"><div class="frame" style="background:#fff"><img src="img/w/vo-residencia.jpg" data-full="img/vo-residencia.jpg" width="2000" height="905" decoding="async" alt="Residencia olímpica, alzado y sección" loading="lazy"><div class="ann"><span class="a blk" style="left:5%;bottom:87%;width:30%"><span class="es">Se propone un gradiente de privacidad de áreas de entrenamiento públicas a espacios comunes privados para los conjuntos residenciales</span><span class="en">A privacy gradient from public training areas to private common spaces for the residential clusters</span></span><span class="a " style="left:32.2%;bottom:61.5%"><span class="es">Galerías de paso abiertas</span><span class="en">Open walkway galleries</span></span><span class="a " style="left:60.98%;bottom:73.6%"><span class="es">Conjuntos residenciales con espacios<br>comunes a doble altura</span><span class="en">Residential clusters with<br>double-height common spaces</span></span><span class="a " style="left:78%;bottom:67.9%"><span class="es">Áreas de entrenamiento que dan servicio<br>a múltiples conjuntos residenciales</span><span class="en">Training areas serving<br>several residential clusters</span></span></div></div><figcaption><b class="es">Residencia olímpica · alzado y sección longitudinal</b><b class="en">Olympic residence · elevation & longitudinal section</b><span>E 1:300</span></figcaption><ul class="annl"><li><span class="es">Gradiente de privacidad: de las áreas de entrenamiento públicas a los espacios comunes privados</span><span class="en">Privacy gradient: from public training areas to private common spaces</span></li><li><span class="es">Galerías de paso abiertas</span><span class="en">Open walkway galleries</span></li><li><span class="es">Conjuntos residenciales con espacios comunes a doble altura</span><span class="en">Residential clusters with double-height common spaces</span></li><li><span class="es">Áreas de entrenamiento que dan servicio a múltiples conjuntos residenciales</span><span class="en">Training areas serving several residential clusters</span></li></ul></figure>
+      <figure class="rv full" data-cap-es="Residencia olímpica · planta de vivienda · E 1:180" data-cap-en="Olympic residence · dwelling plan · 1:180"><div class="frame" style="background:#fff"><img src="img/w/vo-vivienda.jpg" data-full="img/vo-vivienda.jpg" width="2000" height="1414" decoding="async" alt="Planta de vivienda" loading="lazy"></div><figcaption><b class="es">Residencia olímpica · planta de vivienda</b><b class="en">Olympic residence · dwelling plan</b><span>E 1:180</span></figcaption></figure>
+    </div>
+    <p class="label subhead"><span class="es">Maqueta estructural del estadio</span><span class="en">Structural model of the stadium</span></p>
+    <div class="grid g3" style="margin-top:40px">
+      <figure class="rv" data-dark data-cap-es="Maqueta estructural del estadio de atletismo" data-cap-en="Structural model of the athletics stadium"><div class="frame"><img src="img/w/vo-maqueta1.jpg" data-full="img/vo-maqueta1.jpg" width="1200" height="1600" decoding="async" alt="Maqueta del estadio" loading="lazy"></div></figure>
+      <figure class="rv span2" data-dark data-cap-es="Maqueta estructural del estadio de atletismo" data-cap-en="Structural model of the athletics stadium" style="align-self:end"><div class="frame"><img src="img/w/vo-maqueta2.jpg" data-full="img/vo-maqueta2.jpg" width="1600" height="1200" decoding="async" alt="Maqueta del estadio" loading="lazy"></div></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 4 MENCIONES -->
+<section id="menciones" class="dark">
+  <div class="mentions-head">
+    <div class="box"></div>
+    <div>
+      <p class="num" style="font-family:var(--serif);letter-spacing:.3em;color:var(--grey);font-size:13px;padding-left:28px;margin-bottom:14px">04 / 04</p>
+      <h2 class="spaced"><span class="es">menciones<br>honoríficas</span><span class="en">honourable<br>mentions</span></h2>
+    </div>
+  </div>
+
+  <article class="mention light" data-gal="er">
+    <div class="txt rv">
+      <h3>Entre Ríos</h3>
+      <div class="meta">
+        <span class="label"><span class="es">Asignatura: Ciudad y Medio · Titulcia, Madrid</span><span class="en">Course: City & Environment · Titulcia, Madrid</span></span>
+        <span class="label" style="color:#222"><span class="es">Mención honorífica — Programa de Diseño Bioclimático para los Espacios de Titulcia (2024)</span><span class="en">Honourable mention — Bioclimatic Design Program for the Spaces of Titulcia (2024)</span></span>
+      </div>
+      <p class="es">El proyecto crea un corredor ecológico que une las riberas de los ríos Jarama y Tajuña a su paso por Titulcia, facilitando la movilidad sostenible y mejorando la calidad ambiental y urbana. Responde a una fragmentación del entorno natural que interrumpe los hábitats y limita el movimiento de especies entre riberas.</p>
+      <p class="en">The project creates an ecological corridor joining the banks of the Jarama and Tajuña rivers as they cross Titulcia, enabling sustainable mobility and improving environmental and urban quality. It responds to a fragmentation of the natural setting that interrupts habitats and limits the movement of species between the riverbanks.</p>
+      <ul>
+        <li data-i="i"><span class="es">Conexión natural–urbana</span><span class="en">Natural–urban connection</span></li>
+        <li data-i="ii"><span class="es">Mejorar la permeabilidad del suelo</span><span class="en">Improve soil permeability</span></li>
+        <li data-i="iii"><span class="es">Biodiversidad: restauración de especies autóctonas</span><span class="en">Biodiversity: restoring native species</span></li>
+        <li data-i="iv"><span class="es">Integración paisajística y social: senderos y ciclovías</span><span class="en">Landscape & social integration: paths and cycle lanes</span></li>
+        <li data-i="v"><span class="es">Sostenibilidad y educación ambiental</span><span class="en">Sustainability & environmental education</span></li>
+      </ul>
+    </div>
+    <div class="pics rv">
+      <figure data-cap-es="Entre Ríos · lámina de concurso" data-cap-en="Entre Ríos · competition board"><div class="frame"><img src="img/w/er-panel.jpg" data-full="img/er-panel.jpg" width="1400" height="1982" decoding="async" alt="Lámina Entre Ríos" loading="lazy"></div><figcaption><b class="es">Lámina del proyecto</b><b class="en">Project board</b><span>2024</span></figcaption></figure>
+    </div>
+  </article>
+
+  <article class="mention dark" data-gal="esc">
+    <div class="pics two rv">
+      <figure data-dark data-cap-es="Concurso de Arquitectura Cosentino — Edición 20" data-cap-en="Cosentino Architecture Competition — 20th edition"><div class="frame"><img src="img/w/esc-panel.jpg" data-full="img/esc-panel.jpg" width="1400" height="1980" decoding="async" alt="Lámina concurso Cosentino" loading="lazy"></div><figcaption><b>Cosentino</b><span>Ed. 20</span></figcaption></figure>
+      <figure data-dark data-cap-es="Propuesta escenográfica «Lilith, Luna Negra», de David del Puerto" data-cap-en="Stage design for “Lilith, Luna Negra” by David del Puerto"><div class="frame"><img src="img/w/esc-luna.jpg" data-full="img/esc-luna.jpg" width="1400" height="990" decoding="async" alt="Escenografía Lilith, Luna Negra" loading="lazy"></div><figcaption><b>Lilith, Luna Negra</b><span>D. del Puerto</span></figcaption></figure>
+    </div>
+    <div class="txt rv">
+      <h3><span class="es">Escenografía</span><span class="en">Scenography</span></h3>
+      <div class="meta">
+        <span class="label"><span class="es">Asignatura: Taller de Maquetas y Escenografía · 5º curso</span><span class="en">Course: Model-making & Scenography Workshop · 5th year</span></span>
+        <span class="label" style="color:#fff"><span class="es">Matrícula de Honor (2026)</span><span class="en">Highest Honours — Matrícula de Honor (2026)</span></span>
+      </div>
+      <p class="es">Propuesta escenográfica para la ópera «Lilith, Luna Negra» de David del Puerto, y participación en la 20ª edición del Concurso de Arquitectura Cosentino. Un trabajo sobre la luz, la materia suspendida y la atmósfera, desarrollado en maqueta.</p>
+      <p class="en">Stage design proposal for the opera “Lilith, Luna Negra” by David del Puerto, and entry to the 20th Cosentino Architecture Competition. A study of light, suspended matter and atmosphere, developed through physical models.</p>
+    </div>
+  </article>
+</section>
+
+<!-- PERFIL -->
+<section id="perfil" class="perfil light">
+  <aside class="rv">
+    <p class="label" style="margin-bottom:22px"><span class="es">Perfil</span><span class="en">Profile</span></p>
+    <div class="portrait"><div class="ph"><img src="img/w/retrato.jpg" data-full="img/retrato.jpg" width="500" height="667" decoding="async" alt="Retrato de Laura Vidán Taboada"></div></div>
+    <p class="name">Laura Vidán Taboada</p>
+    <p class="label"><span class="es">Estudiante de 5º curso de arquitectura · ETSAM</span><span class="en">5th-year architecture student · ETSAM</span></p>
+    <p class="bio es">Una estudiante entusiasta y creativa, con experiencia laboral, buena capacidad comunicativa y habilidad para trabajar en equipo. Soy asertiva, acostumbrada a adaptarme a situaciones de alta presión manteniendo la calma y la eficacia. Además de tener formación diversa y una actitud receptiva a los retos, soy responsable y confiable.</p>
+    <p class="bio en">An enthusiastic and creative student with professional experience, strong communication skills and a proven ability to work in teams. I am assertive and adept at adapting to high-pressure environments while keeping composure and efficiency. With a diverse background and a proactive attitude toward challenges, I am responsible and reliable.</p>
+    <div class="traits">
+      <span class="es">Comunicativa</span><span class="en">Communicative</span>
+      <span class="es">Responsable</span><span class="en">Responsible</span>
+      <span class="es">Apasionada y eficiente</span><span class="en">Passionate & efficient</span>
+      <span class="es">Asertiva</span><span class="en">Assertive</span>
+      <span class="es">Versátil</span><span class="en">Versatile</span>
+    </div>
+    <div class="contact-mini">
+      <a href="mailto:lauravidan@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg>lauravidan@gmail.com</a>
+      <a href="http://www.linkedin.com/in/laura-vid%C3%A1n-taboada-b130b9306" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm2.5 7v8H9v-8H6.5zm1.25-4a1.4 1.4 0 100 2.8 1.4 1.4 0 000-2.8zM11 10v8h2.5v-4.2c0-1.1.6-1.8 1.5-1.8s1.3.6 1.3 1.8V18H19v-4.8c0-2.4-1.3-3.4-3-3.4-1.2 0-2 .6-2.4 1.2V10H11z"/></svg>LinkedIn</a>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>Las Rozas de Madrid, España</span>
+    </div>
+  </aside>
+  <div class="rule"></div>
+  <div class="cv">
+    <h2 class="spaced rv"><span class="es">perfil</span><span class="en">profile</span></h2>
+
+    <div class="block rv">
+      <h4><span class="es">Experiencia</span><span class="en">Experience</span></h4>
+      <div class="row"><span class="y"><span class="es">sept. 2026 — actualidad</span><span class="en">Sept 2026 — present</span></span><div><strong><span class="es">Prácticas académicas</span><span class="en">Academic internship</span></strong><small><a href="https://studiopractica.com/es/" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px">Estudio PRÁCTICA</a></small></div></div>
+      <div class="row"><span class="y">2020 — 2024</span><div><strong><span class="es">Tutora</span><span class="en">Tutor</span></strong><small><span class="es">Matemáticas, Dibujo Técnico y Física; preparación para los exámenes de selectividad.</span><span class="en">Maths, Technical Drawing and Physics; university entrance exam preparation.</span></small></div></div>
+    </div>
+
+    <div class="block rv">
+      <h4><span class="es">Educación</span><span class="en">Education</span></h4>
+      <div class="row"><span class="y">2021 —</span><div><strong>Escuela Técnica Superior de Arquitectura de Madrid — ETSAM</strong><small><span class="es">Estudiante de 5º año en Fundamentos de la Arquitectura</span><span class="en">5th-year student, Bachelor in Fundamentals of Architecture</span></small></div></div>
+      <div class="row"><span class="y">2020</span><div><strong><span class="es">Examen de Selectividad</span><span class="en">University entrance exam</span></strong><small><span class="es">Nota: 12,8 / 14</span><span class="en">Score: 12.8 / 14</span></small></div></div>
+      <div class="row"><span class="y">2018 — 2020</span><div><strong><span class="es">Bachillerato · Centro Educativo Zola</span><span class="en">High school · Centro Educativo Zola</span></strong><small><span class="es">Expediente sobresaliente</span><span class="en">Outstanding academic record</span></small></div></div>
+    </div>
+
+    <div class="block rv">
+      <h4><span class="es">Menciones</span><span class="en">Awards</span></h4>
+      <div class="row"><span class="y">2026</span><div><strong><span class="es">Matrícula de Honor</span><span class="en">Highest Honours</span></strong><small><span class="es">Asignatura de Maquetas y Escenografía de 5º año</span><span class="en">5th-year Model-making & Scenography course</span></small></div></div>
+      <div class="row"><span class="y">2024</span><div><strong><span class="es">Mención honorífica de diseño</span><span class="en">Honourable design mention</span></strong><small><span class="es">Programa de Diseño Bioclimático para los Espacios de Titulcia</span><span class="en">Bioclimatic Design Program for the Spaces of Titulcia</span></small></div></div>
+      <div class="row"><span class="y">2018</span><div><strong><span class="es">Primer lugar · Campaña Litter Less (YRE)</span><span class="en">First place · Litter Less Campaign (YRE)</span></strong><small><span class="es">Investigación sobre gestión de residuos y sostenibilidad en Madrid</span><span class="en">Research on waste management and sustainability in Madrid</span></small></div></div>
+    </div>
+
+    <div class="block rv">
+      <h4>Software</h4>
+      <div class="sw" id="sw"></div>
+    </div>
+
+    <div class="block rv">
+      <h4><span class="es">Idiomas</span><span class="en">Languages</span></h4>
+      <div class="cols2">
+        <div><div class="row" style="grid-template-columns:90px 1fr"><span class="y"><span class="es">Español</span><span class="en">Spanish</span></span><div><strong><span class="es">Nativo</span><span class="en">Native</span></strong></div></div></div>
+        <div><div class="row" style="grid-template-columns:90px 1fr"><span class="y"><span class="es">Inglés</span><span class="en">English</span></span><div><strong>C1 — IELTS</strong><small>B2 — Cambridge University</small></div></div></div>
+        <div><div class="row" style="grid-template-columns:90px 1fr"><span class="y"><span class="es">Alemán</span><span class="en">German</span></span><div><strong>A2</strong><small><span class="es">Universidad de Ciencias Aplicadas de Frankfurt</span><span class="en">Frankfurt University of Applied Sciences</span></small></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<footer id="contacto" class="contacto dark">
+  <div class="box"></div>
+  <div class="inner">
+    <div>
+      <p class="label" style="margin-bottom:18px"><span class="es">¿Trabajamos juntos?</span><span class="en">Shall we work together?</span></p>
+      <h2 class="spaced"><span class="es">contacto</span><span class="en">contact</span></h2>
+    </div>
+    <div class="ways">
+      <a href="mailto:lauravidan@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg>lauravidan@gmail.com<span class="arrow">→</span></a>
+      <a href="http://www.linkedin.com/in/laura-vid%C3%A1n-taboada-b130b9306" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm2.5 7v8H9v-8H6.5zm1.25-4a1.4 1.4 0 100 2.8 1.4 1.4 0 000-2.8zM11 10v8h2.5v-4.2c0-1.1.6-1.8 1.5-1.8s1.3.6 1.3 1.8V18H19v-4.8c0-2.4-1.3-3.4-3-3.4-1.2 0-2 .6-2.4 1.2V10H11z"/></svg>LinkedIn<span class="arrow">→</span></a>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>Las Rozas de Madrid, España</span>
+    </div>
+  </div>
+  <div class="copy"><span>© 2026 Laura Vidán Taboada</span><a href="#inicio" data-go><span class="es">volver arriba ↑</span><span class="en">back to top ↑</span></a></div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visor">
+  <header><span id="lbCount">1 / 1</span><span class="hint" id="lbHint"><span class="hm"><span class="es">clic en la imagen para ampliar</span><span class="en">click the image to zoom</span></span><span class="ht"><span class="es">doble toque o pellizca para ampliar</span><span class="en">double-tap or pinch to zoom</span></span></span><button class="x" id="lbX"><span class="es">cerrar</span><span class="en">close</span><i></i></button></header>
+  <div class="stage">
+    <button class="nav prev" id="lbP" aria-label="Anterior">←</button>
+    <div class="lbw" id="lbW"><img id="lbImg" alt=""><div class="ann" id="lbAnn"></div></div>
+    <button class="nav next" id="lbN" aria-label="Siguiente">→</button>
+  </div>
+  <footer><b id="lbCap"></b><span id="lbProj"></span></footer>
+</div>
+
+<script>
+(function(){
+  // always start at the cover
+  try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(_){}
+  try{if(location.hash)history.replaceState(null,'',location.pathname+location.search)}catch(_){}
+  const toTop=()=>window.scrollTo(0,0);toTop();
+  addEventListener('load',toTop);addEventListener('pageshow',toTop);
+  const root=document.documentElement;
+  // language
+  function setLang(l){root.dataset.lang=l;root.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));try{localStorage.setItem('lvt-lang',l)}catch(e){}}
+  try{const s=localStorage.getItem('lvt-lang');if(s)setLang(s)}catch(e){}
+  document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+
+  // smooth nav
+  document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1),t=document.getElementById(id);
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+  }));
+
+  // index preview
+  const pv=[...document.querySelectorAll('.preview img')],cap=document.getElementById('pvcap');
+  const names=['arched habitat','fragmentos portantes','villa olímpica del pardo','escenografía'];
+  document.querySelectorAll('[data-pv]').forEach(a=>{
+    const go=()=>{const i=+a.dataset.pv;pv.forEach((im,k)=>im.classList.toggle('on',k===i));cap.textContent=names[i]};
+    a.addEventListener('mouseenter',go);a.addEventListener('focus',go);
+  });
+
+  // software dots
+  const sw=[['Rhinoceros 7+',5],['QGIS · ArcGIS',5],['AutoCAD',5],['Adobe Photoshop',5],['Adobe InDesign',4],['Excel',5],['Microsoft Office',5],['CYPE',3],['SketchUp',3],['Eclipse',3]];
+  document.getElementById('sw').innerHTML=sw.map(([n,v])=>`<div><span>${n}</span><span class="dots" data-v="${v}">${'<i></i>'.repeat(5)}</span></div>`).join('');
+
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');
+      e.target.querySelectorAll('.dots').forEach(d=>[...d.children].forEach((i,k)=>setTimeout(()=>i.classList.toggle('f',k<+d.dataset.v),k*110)));
+      io.unobserve(e.target)}}),{threshold:0,rootMargin:'0px 0px 12% 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // warm up images ahead of the scroll
+  const lazy=[...document.querySelectorAll('img[loading=lazy]')];
+  const warm=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('img[loading=lazy]').forEach(i=>i.loading='eager');warm.unobserve(e.target)}}),{rootMargin:'0px 0px 150% 0px'});
+  document.querySelectorAll('section,article,.body').forEach(el=>warm.observe(el));
+
+  // active menu + progress
+  const links=[...document.querySelectorAll('.menu a')],prog=document.getElementById('prog');
+  const secs=['proyectos','perfil','contacto'];
+  function onScroll(){
+    const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(scrollY/h*100)+'%';
+    let cur='';const pos=scrollY+innerHeight*.4;
+    const map={proyectos:['proyectos','arched-habitat','fragmentos-portantes','villa-olimpica','menciones'],perfil:['perfil'],contacto:['contacto']};
+    for(const k of secs){for(const id of map[k]){const el=document.getElementById(id);if(el&&el.offsetTop<=pos)cur=k}}
+    links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // lightbox
+  const lbAnn=document.getElementById('lbAnn'),lb=document.getElementById('lb'),img=document.getElementById('lbImg'),lc=document.getElementById('lbCap'),cnt=document.getElementById('lbCount'),pj=document.getElementById('lbProj');
+  const projNames={ah:'arched habitat',fp:'fragmentos portantes',vo:'villa olímpica del pardo',er:'entre ríos',esc:'escenografía'};
+  let list=[],idx=0,gal='';
+  function show(){unzoom(true);const f=list[idx],l=root.dataset.lang;img.style.opacity=0;
+    const fi=f.querySelector('img'),src=fi.dataset.full||fi.getAttribute('src');
+    const an=f.querySelector('.ann');lbAnn.innerHTML='';lbAnn.style.display='none';const n=new Image();n.onload=()=>{img.src=src;lbAnn.innerHTML=an?an.innerHTML:'';lbAnn.style.display=an?'block':'none';img.classList.toggle('dk',f.hasAttribute('data-dark'));img.style.opacity=1};n.src=src;
+    lc.textContent=f.dataset['cap'+(l==='en'?'En':'Es')]||'';cnt.textContent=(idx+1)+' / '+list.length;pj.textContent=projNames[gal]||'';}
+  document.querySelectorAll('[data-gal]').forEach(g=>{
+    const figs=[...g.querySelectorAll('figure')];
+    figs.forEach((f,i)=>f.addEventListener('click',()=>{list=figs;idx=i;gal=g.dataset.gal;show();lb.classList.add('open');document.body.style.overflow='hidden'}));
+  });
+  function close(){unzoom(true);lb.classList.remove('open');document.body.style.overflow=''}
+  // ---- zoom: click (mouse) · double-tap / pinch (touch) ----
+  const W=document.getElementById('lbW');let Z=false,S=1,base=null,tx=0,ty=0,down=null,moved=false,pinched=false,lastTap=null;
+  const pts=new Map();let pinch=null;
+  function maxS(){return Math.max(2,Math.min(4,(img.naturalWidth||0)/base.width||2))}
+  function apply(fast){W.style.transition=fast?'transform .12s ease-out':'';W.style.transform=Z?`translate(${tx}px,${ty}px) scale(${S})`:''}
+  function clampT(){const mx=base.width*(S-1)/2,my=base.height*(S-1)/2;tx=Math.max(-mx,Math.min(mx,tx));ty=Math.max(-my,Math.min(my,ty))}
+  function follow(cx,cy){const fx=Math.max(0,Math.min(1,(cx-base.left)/base.width)),fy=Math.max(0,Math.min(1,(cy-base.top)/base.height));tx=(.5-fx)*base.width*(S-1);ty=(.5-fy)*base.height*(S-1)}
+  function ensureBase(){if(!Z)base=W.getBoundingClientRect()}
+  function zoomAt(cx,cy){ensureBase();S=maxS();Z=true;W.classList.add('z');follow(cx,cy);apply()}
+  function unzoom(instant){pts.clear();pinch=null;if(!Z&&!W.style.transform)return;Z=false;S=1;W.classList.remove('z');tx=ty=0;if(instant){W.style.transition='none';W.style.transform='';void W.offsetWidth;W.style.transition=''}else apply()}
+  W.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='mouse'){down={x:e.clientX,y:e.clientY};moved=false;return}
+    W.setPointerCapture(e.pointerId);pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(pts.size===1){down={x:e.clientX,y:e.clientY,tx,ty};moved=false}
+    if(pts.size===2){pinched=true;ensureBase();const [p1,p2]=[...pts.values()];
+      pinch={d0:Math.hypot(p1.x-p2.x,p1.y-p2.y)||1,S0:Z?S:1,mx:(p1.x+p2.x)/2,my:(p1.y+p2.y)/2,tx0:Z?tx:0,ty0:Z?ty:0};down=null}
+  });
+  W.addEventListener('pointermove',e=>{
+    if(e.pointerType==='mouse'){if(down&&(Math.abs(e.clientX-down.x)>6||Math.abs(e.clientY-down.y)>6))moved=true;if(Z){follow(e.clientX,e.clientY);apply(true)}return}
+    if(!pts.has(e.pointerId))return;pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(pinch&&pts.size>=2){const [p1,p2]=[...pts.values()];const d=Math.hypot(p1.x-p2.x,p1.y-p2.y);
+      const ns=Math.max(1,Math.min(maxS(),pinch.S0*d/pinch.d0));const cx=base.left+base.width/2,cy=base.top+base.height/2;
+      const lx=(pinch.mx-cx-pinch.tx0)/pinch.S0,ly=(pinch.my-cy-pinch.ty0)/pinch.S0;const mx=(p1.x+p2.x)/2,my=(p1.y+p2.y)/2;
+      S=ns;Z=S>1.01;W.classList.toggle('z',Z);tx=mx-cx-S*lx;ty=my-cy-S*ly;clampT();W.style.transition='none';W.style.transform=`translate(${tx}px,${ty}px) scale(${S})`;return}
+    if(down){if(Math.abs(e.clientX-down.x)>8||Math.abs(e.clientY-down.y)>8)moved=true;
+      if(Z){tx=down.tx+(e.clientX-down.x);ty=down.ty+(e.clientY-down.y);clampT();apply(true)}}
+  });
+  function upTouch(e){if(!pts.has(e.pointerId))return;pts.delete(e.pointerId);
+    if(pinch){if(pts.size<2){pinch=null;if(S<1.08)unzoom();
+        if(pts.size===1){const r=[...pts.values()][0];down={x:r.x,y:r.y,tx,ty};moved=true}}return}
+    const d=down;down=null;if(!d||moved||pinched)return;
+    const now=Date.now();
+    if(lastTap&&now-lastTap.t<320&&Math.hypot(e.clientX-lastTap.x,e.clientY-lastTap.y)<40){lastTap=null;if(Z)unzoom();else zoomAt(e.clientX,e.clientY)}
+    else lastTap={t:now,x:e.clientX,y:e.clientY};
+  }
+  W.addEventListener('pointerup',e=>{
+    if(e.pointerType==='mouse'){const d=down;down=null;if(!d)return;if(Z)unzoom();else zoomAt(e.clientX,e.clientY);return}
+    upTouch(e)});
+  W.addEventListener('pointercancel',e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;down=null});
+  W.addEventListener('click',e=>e.stopPropagation());
+  const step=d=>{idx=(idx+d+list.length)%list.length;show()};
+  document.getElementById('lbX').onclick=close;
+  document.getElementById('lbP').onclick=()=>step(-1);
+  document.getElementById('lbN').onclick=()=>step(1);
+  lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('stage'))close()});
+  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape'){if(Z)unzoom();else close()};if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+  let x0=null;lb.addEventListener('touchstart',e=>{if(e.touches.length===1){pinched=false;x0=e.touches[0].clientX}else x0=null},{passive:true});
+  lb.addEventListener('touchend',e=>{if(x0===null||Z||pinched||e.touches.length){x0=null;return}const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)step(dx<0?1:-1);x0=null});
+})();
+</script>
+</body>
+</html>
